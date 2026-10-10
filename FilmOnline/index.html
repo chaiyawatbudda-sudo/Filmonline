@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0a0c">
+    <meta name="description" content="FilmOnline — โรงภาพยนตร์ส่วนตัวสำหรับคลิปที่มีสิทธิ์เผยแพร่">
+    <title>FilmOnline — Your Private Cinema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <header class="topbar" id="home">
+      <a class="brand" href="#home" aria-label="FilmOnline หน้าแรก">
+        <span class="brand-mark">F</span>
+        <span>FILM<span class="brand-light">ONLINE</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="เมนูหลัก">
+        <a class="nav-link active" href="#home" data-nav="home">หน้าหลัก</a>
+        <a class="nav-link" href="#explore" data-nav="explore">สำรวจ</a>
+        <a class="nav-link" href="#categories" data-nav="categories">หมวดหมู่</a>
+        <a class="nav-link" href="#my-list" data-nav="my-list">รายการของฉัน</a>
+      </nav>
+
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ค้นหาภาพยนตร์..."
+          autocomplete="off"
+          aria-label="ค้นหาวิดีโอ"
+        >
+        <kbd>/</kbd>
+      </label>
+    </header>
+
+    <main>
+      <section class="hero" id="hero" aria-label="วิดีโอแนะนำ">
+        <img class="hero-image" id="hero-image" alt="">
+        <div class="hero-shade"></div>
+        <div class="hero-grain"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">
+            <span class="live-dot"></span>
+            FILMONLINE ORIGINALS
+            <span class="eyebrow-line"></span>
+          </p>
+          <h1 id="hero-title">A Quiet<br>Kind of Wild</h1>
+          <p class="hero-copy" id="hero-description"></p>
+
+          <div class="hero-meta">
+            <span id="hero-category"></span>
+            <i></i>
+            <span id="hero-duration"></span>
+            <i></i>
+            <span class="quality">HD</span>
+          </div>
+
+          <div class="hero-actions">
+            <button class="button button-primary" id="hero-watch">
+              <span>▶</span> Watch now
+            </button>
+            <button class="button button-ghost" id="hero-info">
+              <span class="info-icon">i</span> More info
+            </button>
+          </div>
+
+          <div class="hero-index">
+            <span id="hero-number">01</span>
+            <span class="index-rule"></span>
+            <span>CURATED FOR YOU</span>
+          </div>
+        </div>
+
+        <div class="hero-rail">
+          <span>01</span>
+          <span class="rail-line"></span>
+          <span>04</span>
+        </div>
+        <button class="hero-next" id="hero-next" aria-label="เรื่องแนะนำถัดไป">↗</button>
+      </section>
+
+      <section class="content-section" id="explore">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow muted">THE GOOD STUFF</p>
+            <h2>Trending <em>now</em></h2>
+          </div>
+          <button class="text-button" id="random-pick">Surprise me <span>⤨</span></button>
+        </div>
+
+        <div class="filter-bar" id="categories">
+          <span class="filter-label">BROWSE BY</span>
+          <div class="category-chips" id="category-chips"></div>
+          <button class="clear-filter" id="clear-filters" hidden>ล้างตัวกรอง ×</button>
+        </div>
+
+        <p class="result-note" id="result-note" aria-live="polite"></p>
+        <div class="movie-grid" id="movie-grid"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-icon">⌕</span>
+          <h3>ยังไม่เจอเรื่องที่ใช่</h3>
+          <p>ลองเปลี่ยนคำค้นหาหรือเลือกหมวดหมู่อื่น</p>
+          <button class="button button-ghost" id="reset-search">ล้างการค้นหา</button>
+        </div>
+      </section>
+
+      <section class="mood-section" id="moodmatch">
+        <div class="mood-art">
+          <div class="mood-orbit orbit-one"></div>
+          <div class="mood-orbit orbit-two"></div>
+          <span class="mood-star">✳</span>
+          <span class="mood-word">FEEL<br>YOUR<br>FILM</span>
+        </div>
+
+        <div class="mood-copy">
+          <p class="eyebrow muted">A LITTLE MAGIC, JUST FOR YOU</p>
+          <h2>What are you<br><em>in the mood for?</em></h2>
+          <p>เลือกความรู้สึก แล้วให้เราหาเรื่องที่เข้ากับช่วงเวลานี้</p>
+          <div class="mood-options" id="mood-options"></div>
+          <div id="mood-results" class="mood-results" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="content-section continue-section" id="continue-section" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow muted">PICK UP WHERE YOU LEFT OFF</p>
+            <h2>Continue <em>watching</em></h2>
+          </div>
+        </div>
+        <div class="continue-grid" id="continue-grid"></div>
+      </section>
+
+      <section class="content-section list-section" id="my-list">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow muted">YOUR PERSONAL COLLECTION</p>
+            <h2>My <em>list</em></h2>
+          </div>
+          <span class="list-count" id="list-count">0 TITLES</span>
+        </div>
+        <div class="movie-grid" id="list-grid"></div>
+        <div class="list-empty" id="list-empty">
+          <span>♡</span>
+          <p>เรื่องที่คุณบันทึกไว้จะอยู่ตรงนี้</p>
+          <small>กดสัญลักษณ์หัวใจบนการ์ดเพื่อเพิ่มเรื่องโปรด</small>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark">F</span>
+        <span>FILM<span class="brand-light">ONLINE</span></span>
+      </a>
+      <p>เรื่องราวดี ๆ อยู่ใกล้กว่าที่คิด</p>
+      <span class="footer-note">A PRIVATE CINEMA · MADE FOR YOUR MOMENT</span>
+    </footer>
+
+    <dialog class="detail-dialog" id="detail-dialog">
+      <button class="dialog-close" data-close aria-label="ปิด">×</button>
+      <div id="detail-content"></div>
+    </dialog>
+
+    <dialog class="player-dialog" id="player-dialog">
+      <button class="dialog-close" data-close aria-label="ปิดเครื่องเล่น">×</button>
+      <div class="player-shell">
+        <video id="video-player" controls playsinline preload="metadata"></video>
+        <div id="player-fallback" class="player-fallback" hidden>
+          <span>◉</span>
+          <h2>ยังไม่มีไฟล์วิดีโอ</h2>
+          <p>
+            เพิ่มไฟล์ที่คุณเป็นเจ้าของหรือได้รับอนุญาตใน <code>assets/videos/</code><br>
+            แล้วระบุเส้นทางในข้อมูลวิดีโอของ <code>script.js</code>
+          </p>
+        </div>
+      </div>
+      <div class="player-caption">
+        <span class="eyebrow muted">NOW PLAYING</span>
+        <h2 id="player-title"></h2>
+        <p id="player-status" role="status"></p>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
